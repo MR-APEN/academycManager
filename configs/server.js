@@ -5,6 +5,7 @@ import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
 import authRoutes from "../src/auth/auth.routes.js"
 import courseRoutes from "../src/course/course.routes.js"
+import studentRoutes from "../src/student/student.routes.js"
 import apiLimiter from "../src/middlewares/requests-validator.js"
 
 const middlewares = (app) => {
@@ -19,6 +20,7 @@ const middlewares = (app) => {
 const routes = (app) => {
     app.use("/academycManager/v1/auth", authRoutes)
     app.use("/academycManager/v1/course", courseRoutes)
+    app.use("/academycManager/v1/students", studentRoutes)
 }
 
 const conectDB = async () => {
