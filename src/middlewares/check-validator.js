@@ -21,7 +21,7 @@ export const registerValidator = [
 ]
 
 export const loginValidator = [
-    body("email", "Ingrese un correo válido").isEmail(),
+    body("email").not().isEmpty().isEmail().withMessage("Ingrese un correo válido"),
     body("password","La contraseña es incorrecta"),
     validateField,
     deleteFileOnError

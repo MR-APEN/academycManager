@@ -28,7 +28,7 @@ export const register = async (req,res) => {
 export const login = async (req,res) => {
     const {email, password} = req.body
     try {
-        const user = await User.findOne({$or: [{email: email}]})
+        const user = await User.findOne({email: email})
         if(!user){
             return res.status(400).json({
                 message: "Credenciales inválidas",
