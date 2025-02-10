@@ -126,12 +126,12 @@ export const deleteCourse = async (req, res) => {
         message: "Este no es tu curso, Acceso denegado"
       })
     }
+    await Course.findByIdAndUpdate(uid, {students: []})
 
     await Course.findByIdAndUpdate(uid,{status: false}, {new: true});
     return res.status(200).json({
       success: true,
-      message: "Curso eliminado correctamente",
-      course
+      message: "Curso eliminado correctamente"
     })
   } catch (error) {
     return res.status(500).json({

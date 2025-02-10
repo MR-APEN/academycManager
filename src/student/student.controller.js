@@ -124,14 +124,14 @@ export const updateStudentProfile = async (req, res) => {
 
 export const updateStudentPassword = async (req, res) => {
     try{
-        const { studentId } = req.params
+        const { uid } = req.params
         const { newPassword } = req.body
 
-        const student = await User.findById(studentId)
+        const user = await User.findById(uid)
 
-        const matchOldAndNewPassword = await verify(student.password, newPassword)
+        const matchPassword = await verify(user.password, newPassword)
 
-        if(matchOldAndNewPassword){
+        if(matchPassword){
             return res.status(400).json({
                 success: false,
                 message: "La nueva contraseña no puede ser igual a la anterior"
@@ -140,7 +140,7 @@ export const updateStudentPassword = async (req, res) => {
 
         const encryptedPassword = await hash(newPassword)
 
-        await User.findByIdAndUpdate(studentId, {password: encryptedPassword})
+        await User.findByIdAndUpdate(uid, {password: encryptedPassword})
 
         return res.status(200).json({
             success: true,

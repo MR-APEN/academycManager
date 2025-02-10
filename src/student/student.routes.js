@@ -7,6 +7,6 @@ router.post("/assignToCourse", assignStudentToCourse)
 router.get("/studentCourses/:studentId", getStudentCourses)
 router.put("/updateStudent/:studentId" ,updateStudentProfile)
 router.delete("/deleteStudent/:studentId", deleteStudentProfile)
-router.patch("/updatePassword/:studentId", updateStudentPassword)
+router.patch("/updatePassword/:uid", updateStudentPassword)
 
-export default router
+export default routerQ
