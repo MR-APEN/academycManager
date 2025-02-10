@@ -3,10 +3,10 @@ import { assignStudentToCourse, getStudentCourses, updateStudentProfile, deleteS
 
 const router = Router()
 
-router.post("/assignToCourse", assignStudentToCourse)
+router.post("/assignToCourse",assignStudentToCourse)
 router.get("/studentCourses/:studentId", getStudentCourses)
 router.put("/updateStudent/:studentId" ,updateStudentProfile)
 router.delete("/deleteStudent/:studentId", deleteStudentProfile)
 router.patch("/updatePassword/:uid", updateStudentPassword)
 
-export default routerQ
+export default router
